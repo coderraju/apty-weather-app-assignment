@@ -1,0 +1,59 @@
+
+
+<!-- Toolbar -->
+<!-- <div class="toolbar" role="banner">
+
+  <div class="spacer"></div>
+
+</div> -->
+<mat-card  class="mat-main">
+
+  <mat-card-content>
+<div class="mat-content-div">
+
+  <h1 style="font-size: 60px;">Share Your Location</h1>  <br>
+
+    <h1>Know Your Weather</h1>
+</div>
+  </mat-card-content>
+
+<mat-card-actions >
+<div class="mat-action-div">
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width" >
+      <mat-label>Enter your location</mat-label>
+      <input matInput  type="text"  [(ngModel)]="address" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  </form>
+  <div style="text-align: end;">
+    <button  class="btn" mat-raised-button color="accent" formtarget="_blank" (click)="getAddress(address)">FORECAST</button>
+  </div>
+</div>
+
+</mat-card-actions>
+</mat-card>
+
+<div class="content" role="main">
+      
+  <h1 style="color: grey;">RESULT DISPLAYED BELOW
+</h1>
+   <div *ngIf="isWeather">
+    <div *ngIf="!weatherReport">
+      <mat-spinner></mat-spinner>
+     </div>
+    <div *ngIf="isWeatherErr" class="error-style">
+
+           <h1>{{weatherReport}}</h1> 
+    </div>
+    <div *ngIf="!isWeatherErr && weatherReport ">
+  <div class="result-style">
+    Weather Report:<br>
+    <h1>{{weatherReport}}</h1> 
+  </div>
+    </div>
+
+   </div>
+
+
+  </div>
